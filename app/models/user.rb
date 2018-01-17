@@ -27,3 +27,6 @@ class User < ActiveRecord::Base
          validates :name, presence: true
          validates :name,  presence: true, length: { maximum: 50 }
 end
+def feed
+    Micropost.from_users_followed_by(self)
+  end
